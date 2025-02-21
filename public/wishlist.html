@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><strong>ThriftEx</strong></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="userHome.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sell.html">Sell</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="wishlist.html">Wishlist</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sign-in.html">Sign In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Wishlist Content -->
+    <main class="container mt-5">
+        <h2 class="mb-4 text-center">My Wishlist</h2>
+
+        <div id="wishlist-container" class="row">
+            <!-- Wishlist items will be dynamically added here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center mt-5 py-3 bg-light">
+        <p>&copy; 2025 ThriftEx. All rights reserved.</p>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/wishlist.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          fetchWishlistItems();
+      });
+
+      // Fetch Wishlist Items
+      function fetchWishlistItems() {
+          fetch("http://localhost:3000/api/wishlist", { credentials: "include" })
+              .then(response => response.json())
+              .then(data => {
+                  if (data.success) {
+                      const wishlistContainer = document.getElementById("wishlist-container");
+                      wishlistContainer.innerHTML = "";
+
+                      if (data.data.length === 0) {
+                          wishlistContainer.innerHTML = "<p class='text-center'>Your wishlist is empty.</p>";
+                          return;
+                      }
+
+                      data.data.forEach(item => {
+                          const itemHTML = `
+                              <div class="col-md-4">
+                                  <div class="card mb-4">
+                                      <img src="${item.image_url}" class="card-img-top" alt="${item.title}">
+                                      <div class="card-body">
+                                          <h5 class="card-title">${item.title}</h5>
+                                          <p class="card-text"><strong>Size:</strong> ${item.size}</p>
+                                          <p class="card-text"><strong>Color:</strong> ${item.color}</p>
+                                          <p class="card-text"><strong>Price:</strong> $${item.price}</p>
+                                          <div class="d-flex justify-content-between">
+                                              <a href="product-detail.html?id=${item.product_id}" class="btn btn-primary">View Product</a>
+                                              <button class="btn btn-danger" onclick="removeFromWishlist(${item.wishlist_id})">
+                                                  <i class="bi bi-trash"></i> Remove
+                                              </button>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          `;
+                          wishlistContainer.innerHTML += itemHTML;
+                      });
+                  } else {
+                      document.getElementById("wishlist-container").innerHTML = "<p class='text-center text-danger'>Error loading wishlist.</p>";
+                  }
+              })
+              .catch(error => console.error("Error fetching wishlist:", error));
+      }
+
+      // Remove from Wishlist
+      function removeFromWishlist(wishlistId) {
+          fetch(`http://localhost:3000/api/wishlist/remove/${wishlistId}`, {
+              method: "DELETE",
+              credentials: "include"
+          })
+          .then(response => response.json())
+          .then(data => {
+              alert(data.message);
+              fetchWishlistItems(); // Refresh wishlist after removal
+          })
+          .catch(error => console.error("Error removing from wishlist:", error));
+      }
+    </script>
+</body>
+</html>

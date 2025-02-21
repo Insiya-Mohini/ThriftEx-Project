@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Tooplate's Little Fashion - Product Detail</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/slick.css" />
+    <link href="css/tooplate-little-fashion.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <section class="preloader">
+      <div class="spinner">
+        <span class="sk-inner-circle"></span>
+      </div>
+    </section>
+
+    <main>
+      <nav class="navbar navbar-expand-lg">
+      <div class="container">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <a class="navbar-brand" href="index.html">
+              <strong><span>Little</span> Fashion</strong>
+          </a>
+
+          <div class="d-lg-none">
+              <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+              <a href="wishlist.html" class="bi-heart custom-icon me-3"></a>
+              <a href="cart.html" class="bi-bag custom-icon"></a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav mx-auto">
+                  <li class="nav-item">
+                      <a class="nav-link active" href="userHome.html">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="products.html">Products</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="sell.html">Sell</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="my-ebay.html">My ThriftEx</a>
+                  </li>
+              </ul>
+
+              <form class="d-flex ms-lg-4">
+                  <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+
+              <div class="d-none d-lg-block">
+                  <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+                  <a href="wishlist.html" class="bi-heart custom-icon me-3"></a>
+                  <a href="cart.html" class="bi-bag custom-icon"></a>
+              </div>
+          </div>
+      </div>
+    </nav>
+
+      <header
+        class="site-header section-padding d-flex justify-content-center align-items-center"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-12">
+              <h1>
+                <span class="d-block text-primary">We provide you</span>
+                <span class="d-block text-dark">Fashionable Stuffs</span>
+              </h1>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="product-detail section-padding">
+        <div class="container" id="product-container">
+          <div class="row">
+            <div class="col-lg-6 col-12">
+              <div class="product-thumb">
+                <img
+                  src=""
+                  id="product-image"
+                  class="img-fluid product-image"
+                  alt="Product Image"
+                />
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-12">
+              <div class="product-info d-flex">
+                <div>
+                  <h2 class="product-title mb-0" id="product-title"></h2>
+                </div>
+                <small
+                  class="product-price text-muted ms-auto mt-auto mb-5"
+                  id="product-price"
+                ></small>
+                <div>
+                <small class="wishlist-icon">
+                  <i class="bi bi-heart" id="wishlist-btn"></i>
+                </small></div>             
+            </div>
+
+              <p id="product-condition"></p>
+
+              <div class="product-description">
+                <strong class="d-block mt-4 mb-2">Description</strong>
+                <p class="lead mb-5" id="product-description"></p>
+              </div>
+
+              <div class="product-additional-info">
+                <p><strong>Size:</strong> <span id="product-size"></span></p>
+                <p><strong>Gender:</strong> <span id="product-gender"></span></p>
+                <p><strong>Material:</strong> <span id="product-material"></span></p>
+              </div>
+
+              <div class="product-cart-thumb row">
+                <div class="col-lg-6 col-12">
+                  <select
+                    class="form-select cart-form-select"
+                    id="quantity"
+                    title="#"
+                  >
+                    <option selected>Quantity</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                </div>
+                <div class="col-lg-6 col-12 mt-4 mt-lg-0">
+                  <button
+                    type="submit"
+                    class="btn custom-btn cart-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#cart-modal"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-10 me-auto mb-4">
+              <h4 class="text-white mb-3">
+                <a href="index.html">Little</a> Fashion
+              </h4>
+              <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">
+                Copyright © 2022 <strong>Little Fashion</strong>
+              </p>
+              <br />
+              <p class="copyright-text">
+                Designed by <a href="#" target="_blank">Tooplate</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- JAVASCRIPT FILES -->
+    <script>
+      document.querySelector(".cart-btn").addEventListener("click", async () => {
+          const userId = 1; // Replace with dynamic user ID
+          const productId = new URLSearchParams(window.location.search).get("id");
+          const quantity = document.querySelector("#quantity").value;
+          const size = document.querySelector("#product-size").textContent.trim();
+          const color = document.querySelector("#product-color")?.textContent.trim(); // Optional, only if available
+          const price = parseFloat(document.querySelector("#product-price").textContent.replace("₹", "").trim());
+          const imageUrl = document.querySelector("#product-image").src;
+  
+          if (!productId || quantity === "Quantity") {
+              alert("Please select a valid quantity.");
+              return;
+          }
+  
+          try {
+              const response = await fetch("http://localhost:3000/api/cart", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({
+                      userId,
+                      productId,
+                      quantity,
+                      size,
+                      color,
+                      price,
+                      image_url: imageUrl,
+                  }),
+              });
+              const data = await response.json();
+  
+              if (data.success) {
+                  alert(data.message || "Product added to cart .");
+              } else {
+                  alert(data.message || "Failed to add product to cart.");
+              }
+          } catch (error) {
+              console.error("Error adding to cart:", error);
+              alert("An error occurred while adding to the cart.");
+          }
+        }
+      );
+    </script>
+  
+    
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/product-detail.js"></script>
+  </body>
+</html>

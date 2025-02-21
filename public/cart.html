@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - ThriftEx</title>
+    
+    <!-- CSS Files -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/slick.css">
+    <link href="css/tooplate-little-fashion.css" rel="stylesheet">
+    <style>
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+        .cart-item img {
+            max-width: 100px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .cart-summary {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .summary-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .summary-total {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        .btn-checkout {
+            background-color: black;
+            color: white;
+            width: 100%;
+        }
+        .quantity-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .quantity-btn {
+            background: none;
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .quantity-btn:hover {
+            background-color: #f0f0f0;
+        }
+        .remove-item-btn {
+            background: none;
+            border: none;
+            color: red;
+            cursor: pointer;
+        }
+        .remove-item-btn:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">
+                <strong><span>Little</span> Fashion</strong>
+            </a>
+            <div class="d-lg-none">
+                <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+                <a href="wishlist.html" class="bi-heart custom-icon me-3"></a>
+                <a href="cart.html" class="bi-bag custom-icon"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="userHome.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sell.html">Sell</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="my-ebay.html">My ThriftEx</a>
+                    </li>
+                </ul>
+                <form class="d-flex ms-lg-4">
+                    <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <div class="d-none d-lg-block">
+                    <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+                    <a href="wishlist.html" class="bi-heart custom-icon me-3"></a>
+                    <a href="cart.html" class="bi-bag custom-icon"></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <br><br>
+    <section class="container mt-5">
+        <h2 class="text-center">Shopping Bag</h2>
+        <div class="row mt-4">
+            <!-- Cart Items -->
+            <div class="col-lg-8" id="cart-container">
+                <!-- Dynamic content will be added here -->
+            </div>
+
+            <!-- Summary Section -->
+            <div class="col-lg-4">
+                <div class="cart-summary">
+                    <p class="summary-title">Order Summary</p>
+                    <p>Order value: <span id="order-value">₹0.00</span></p>
+                    <p>Delivery: <span id="delivery-fee">FREE</span></p>
+                    <p class="summary-total">Total: <span id="cart-total">₹0.00</span></p>
+                    <button class="btn btn-checkout mt-3">Continue to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-10 me-auto">
+                    <h4><a href="index.html">Little</a> Fashion</h4>
+                    <p>© 2025 Little Fashion. All rights reserved.</p>
+                </div>
+                <div class="col-lg-5 col-8">
+                    <h5>Sitemap</h5>
+                    <ul class="footer-menu d-flex flex-wrap">
+                        <li><a href="about.html">Story</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-4">
+                    <h5>Social</h5>
+                    <ul class="social-icon">
+                        <li><a href="#" class="bi-youtube"></a></li>
+                        <li><a href="#" class="bi-whatsapp"></a></li>
+                        <li><a href="#" class="bi-instagram"></a></li>
+                        <li><a href="#" class="bi-skype"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const cartContainer = document.getElementById("cart-container");
+            const cartTotalElement = document.getElementById("cart-total");
+            const orderValueElement = document.getElementById("order-value");
+
+            async function fetchCartItems() {
+                try {
+                    const response = await fetch("http://localhost:3000/api/cart");
+                    const data = await response.json();
+
+                    if (data.success && data.data.length > 0) {
+                        renderCartItems(data.data);
+                        updateCartTotal(data.data);
+                    } else {
+                        cartContainer.innerHTML = "<p class='text-center'>Your shopping bag is empty.</p>";
+                    }
+                } catch (error) {
+                    console.error("Error fetching cart items:", error);
+                    cartContainer.innerHTML = "<p class='text-center'>Failed to load cart items.</p>";
+                }
+            }
+
+            function renderCartItems(items) {
+                cartContainer.innerHTML = "";
+                items.forEach((item) => {
+                    const itemDiv = document.createElement("div");
+                    itemDiv.classList.add("row", "cart-item", "align-items-center");
+                    itemDiv.innerHTML = `
+                        <div class="col-lg-2 col-4">
+                            <img src="${item.image_url || 'placeholder.jpg'}" alt="${item.title || 'Product'}" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6 col-8">
+                            <h6>${item.title || 'Untitled Product'}</h6>
+                            <p>Color: ${item.color || 'Not specified'}</p>
+                            <p>Size: ${item.size || 'Not specified'}</p>
+                            <p>Price: ₹${item.price ? parseFloat(item.price).toFixed(2) : '0.00'}</p>
+                        </div>
+                        <div class="col-lg-2 col-4 quantity-wrapper">
+                            <button class="quantity-btn decrease" data-cart-id="${item.cart_id}">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="quantity-btn increase" data-cart-id="${item.cart_id}">+</button>
+                        </div>
+                        <div class="col-lg-2 col-4 text-end">
+                            <p class="fw-bold">₹${item.total_price ? parseFloat(item.total_price).toFixed(2) : '0.00'}</p>
+                            <button class="remove-item-btn" data-cart-id="${item.cart_id}" title="Remove from Cart">
+                                <i class="bi-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    cartContainer.appendChild(itemDiv);
+                });
+            }
+
+            function updateCartTotal(items) {
+                const total = items.reduce((sum, item) => sum + item.quantity * item.price, 0);
+                cartTotalElement.textContent = `₹${total.toFixed(2)}`;
+                orderValueElement.textContent = `₹${total.toFixed(2)}`;
+            }
+
+            cartContainer.addEventListener("click", async (e) => {
+                const target = e.target.closest("button");
+                if (target && target.classList.contains("quantity-btn")) {
+                    const cartId = target.getAttribute("data-cart-id");
+                    const isIncrease = target.classList.contains("increase");
+                    const quantityElement = target.closest(".quantity-wrapper").querySelector("span");
+                    let newQuantity = parseInt(quantityElement.textContent);
+
+                    newQuantity += isIncrease ? 1 : -1;
+                    if (newQuantity < 1) return;
+
+                    try {
+                        const response = await fetch(`http://localhost:3000/api/cart/${cartId}`, {
+                            method: "PUT",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({ quantity: newQuantity }),
+                        });
+                        const data = await response.json();
+
+                        if (data.success) {
+                            fetchCartItems();
+                        } else {
+                            alert("Failed to update quantity.");
+                        }
+                    } catch (error) {
+                        console.error("Error updating quantity:", error);
+                    }
+                }
+
+                if (target && target.classList.contains("remove-item-btn")) {
+                    const cartId = target.getAttribute("data-cart-id");
+                    try {
+                        const response = await fetch(`http://localhost:3000/api/cart/${cartId}`, {
+                            method: "DELETE",
+                        });
+                        const data = await response.json();
+
+                        if (data.success) {
+                            fetchCartItems();
+                        } else {
+                            alert("Failed to remove item.");
+                        }
+                    } catch (error) {
+                        console.error("Error removing item:", error);
+                    }
+                }
+            });
+
+            fetchCartItems();
+        });
+    </script>
+</body>
+</html>

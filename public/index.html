@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - ThriftEx</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+
+        .left-section {
+            background-color: #0f4c75;
+            color: #fff;
+            width: 50%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .right-section {
+            width: 50%;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right-section h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .input-field {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .sign-in-button {
+            background-color: #0f4c75;
+            color: #fff;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .sign-in-button:hover {
+            background-color: #1e5d97;
+        }
+
+        .left-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .left-section p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Left Section -->
+    <div class="left-section">
+        <h2>Welcome to</h2>
+        <p>ThriftEx</p>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-section">
+        <h2>Please Select how would you like to Sign In</h2>
+        <form action="U-signin.html">
+            <button type="submit" class="sign-in-button">Sign In as a User</button>
+        </form>
+        <br>
+        <form action="S-signin.html">
+            <button type="submit" class="sign-in-button">Sign In as a Seller</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buyer Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .dashboard-container {
+        display: flex;
+        height: 100vh;
+      }
+      
+      .side-panel {
+        width: 250px;
+        background-color: #2c3e50;
+        color: white;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+      }
+      
+      .side-panel .user-info {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      .side-panel h2 {
+        font-size: 1.5rem;
+        margin: 0;
+      }
+      
+      .side-panel nav ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      
+      .side-panel nav ul li {
+        margin: 15px 0;
+      }
+      
+      .side-panel nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 1rem;
+        display: block;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      
+      .side-panel nav ul li a:hover {
+        background-color: #34495e;
+      }
+      
+      .content {
+        flex-grow: 1;
+        padding: 20px;
+        background-color: #ecf0f1;
+      }
+      
+      .content h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Side Panel -->
+    <aside class="side-panel">
+      <div class="user-info">
+        <h2 id="username">Hello, User</h2>
+      </div>
+      <nav>
+        <ul>
+            <li>
+                <a href="#" id="orders-link">
+                  <i class="fas fa-box"></i> My Orders
+                </a>
+              </li>
+              <li>
+                <a href="#" id="wishlist-link">
+                  <i class="fas fa-heart"></i> Wishlist
+                </a>
+              </li>
+              <li>
+                <a href="#" id="profile-link">
+                  <i class="fas fa-user"></i> Profile
+                </a>
+              </li>
+              <li>
+                <a href="/logout" id="logout-link">
+                  <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+              </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      <h1>Welcome to your Dashboard</h1>
+      <div id="dashboard-content">
+        <!-- Content will dynamically load here -->
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+        // Set the username dynamically
+        try {
+          const userResponse = await fetch("/user/details");
+          const userData = await userResponse.json();
+      
+          if (userData.success) {
+            document.getElementById("username").innerText = `Hello, ${userData.data.username}`;
+          }
+        } catch (error) {
+          console.error("Error fetching user details:", error);
+        }
+      
+        // Dynamic content loading
+        const content = document.getElementById("dashboard-content");
+      
+        document.getElementById("orders-link").addEventListener("click", async (e) => {
+          e.preventDefault();
+          const ordersResponse = await fetch("/user/orders");
+          const ordersData = await ordersResponse.json();
+      
+          content.innerHTML = "<h2>My Orders</h2>";
+          if (ordersData.success) {
+            ordersData.data.forEach((order) => {
+              content.innerHTML += `
+                <div class="order-item">
+                  <p>Order ID: ${order.id}</p>
+                  <p>Status: ${order.status}</p>
+                </div>
+              `;
+            });
+          } else {
+            content.innerHTML += "<p>No orders found.</p>";
+          }
+        });
+      
+        document.getElementById("wishlist-link").addEventListener("click", (e) => {
+          e.preventDefault();
+          content.innerHTML = "<h2>Wishlist</h2><p>Coming soon...</p>";
+        });
+      
+        document.getElementById("profile-link").addEventListener("click", (e) => {
+          e.preventDefault();
+          content.innerHTML = "<h2>Profile</h2><p>Update your profile information here.</p>";
+        });
+      });      
+  </script>
+</body>
+</html>

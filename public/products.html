@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Tooplate's Little Fashion - Products</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-icons.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/slick.css" />
+
+    <link href="css/tooplate-little-fashion.css" rel="stylesheet" />
+    <!--
+
+Tooplate 2127 Little Fashion
+
+https://www.tooplate.com/view/2127-little-fashion
+
+-->
+  </head>
+
+  <body>
+    <section class="preloader">
+      <div class="spinner">
+        <span class="sk-inner-circle"></span>
+      </div>
+    </section>
+
+    <main>
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+  
+            <a class="navbar-brand" href="index.html">
+                <strong><span>Little</span> Fashion</strong>
+            </a>
+  
+            <div class="d-lg-none">
+                <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+                <a href="wishlist.html" class="bi-heart custom-icon me-3"></a>
+                <a href="cart.html" class="bi-bag custom-icon"></a>
+            </div>
+  
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="userHome.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sell.html">Sell</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="useraccount.html">My ThriftEx</a>
+                    </li>
+                </ul>
+  
+                <form class="d-flex ms-lg-4">
+                    <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+  
+                <div class="d-none d-lg-block">
+                    <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+                    <a href="wishlist.html" class="bi-heart custom-icon me-3"></a>
+                    <a href="cart.html" class="bi-bag custom-icon"></a>
+                </div>
+            </div>
+        </div>
+      </nav>
+
+      <header
+        class="site-header section-padding d-flex justify-content-center align-items-center"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10 col-12">
+              <h1>
+                <span class="d-block text-primary">Choose your</span>
+                <span class="d-block text-dark">favorite stuffs</span>
+              </h1>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!--SORT BY -->
+      <div class="mb-3">
+        <label for="sortBy" class="form-label">Sort By:</label>
+        <select id="sortBy" class="form-select">
+          <option value="createdAt">Newest</option>
+          <option value="priceAsc">Price: Low to High</option>
+          <option value="priceDesc">Price: High to Low</option>
+        </select>
+      </div>
+
+      <div class="filter-container">
+        <!-- Filter Button -->
+        <button id="filter-button" class="filter-btn">Filter</button>
+
+        <!-- Filter Side Window -->
+        <div id="filterWindow" class="filter-window">
+          <div class="filter-window-content">
+            <button id="closeFilterWindow" class="close-btn">Close</button>
+            <h4>Filter by</h4>
+
+            <!-- Category Filter -->
+            <div class="filter-section">
+              <h5>Category</h5>
+              <label>
+                <input type="checkbox" name="category" value="clothing" />
+                Clothing
+              </label>
+              <label>
+                <input type="checkbox" name="category" value="accessories" />
+                Accessories
+              </label>
+            </div>
+            <br />
+
+            <!-- Condition Filter -->
+            <div class="filter-section">
+              <h5>Condition</h5>
+              <label>
+                <input type="checkbox" name="condition" value="New with tags" />
+                New With Tags
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  name="condition"
+                  value="New without tags"
+                />
+                New without Tags
+              </label>
+              <label>
+                <input type="checkbox" name="condition" value="Pre-owned" />
+                Pre-owned
+              </label>
+            </div>
+            <br />
+
+            <div class="filter-section">
+              <h5>Gender</h5>
+              <label>
+                <input type="checkbox" name="gender" value="Male" />
+                Male
+              </label>
+              <label>
+                <input type="checkbox" name="gender" value="Female" />
+                Female
+              </label>
+            </div>
+            <br />
+
+            <div class="filter-section">
+              <h5>Size</h5>
+              <label>
+                <input type="checkbox" name="size" value="XS" />
+                XS
+              </label>
+              <label>
+                <input type="checkbox" name="size" value="S" />
+                S
+              </label>
+              <label>
+                <input type="checkbox" name="size" value="M" />
+                M
+              </label>
+              <label>
+                <input type="checkbox" name="size" value="L" />
+                L
+              </label>
+              <label>
+                <input type="checkbox" name="size" value="XL" />
+                XL
+              </label>
+            </div>
+
+            <!-- Apply Filters Button -->
+            <button id="apply-filters" class="apply-btn">Apply Filters</button>
+          </div>
+        </div>
+      </div>
+
+      <section class="products section-padding">
+        <div class="container">
+          <div class="row" id="product-list"></div>
+
+          <!-- <div class="row">
+            <div class="col-12">
+              <h2 class="mb-5">Popular</h2>
+            </div>
+
+            <div class="col-lg-4 col-12 mb-3">
+              <div class="product-thumb">
+                <a href="product-detail.html">
+                  <img
+                    src="images/product/team-fredi-8HRKoay8VJE-unsplash.jpeg"
+                    class="img-fluid product-image"
+                    alt=""
+                  />
+                </a>
+
+                <div class="product-top d-flex">
+                  <span class="product-alert">Trending</span>
+
+                  <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
+                </div>
+
+                <div class="product-info d-flex">
+                  <div>
+                    <h5 class="product-title mb-0">
+                      <a href="product-detail.html" class="product-title-link"
+                        >Package</a
+                      >
+                    </h5>
+
+                    <p class="product-p">Original package design from house</p>
+                  </div>
+
+                  <small class="product-price text-muted ms-auto">$50</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-12 mb-3">
+              <div class="product-thumb">
+                <a href="product-detail.html">
+                  <img
+                    src="images/product/quokkabottles-kFc1_G1GvKA-unsplash.jpeg"
+                    class="img-fluid product-image"
+                    alt=""
+                  />
+                </a>
+
+                <div class="product-top d-flex">
+                  <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
+                </div>
+
+                <div class="product-info d-flex">
+                  <div>
+                    <h5 class="product-title mb-0">
+                      <a href="product-detail.html" class="product-title-link"
+                        >Bottle</a
+                      >
+                    </h5>
+
+                    <p class="product-p">Package design</p>
+                  </div>
+
+                  <small class="product-price text-muted ms-auto">$100</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-12 mb-3">
+              <div class="product-thumb">
+                <a href="product-detail.html">
+                  <img
+                    src="images/product/anis-m-WnVrO-DvxcE-unsplash.jpeg"
+                    class="img-fluid product-image"
+                    alt=""
+                  />
+                </a>
+
+                <div class="product-top d-flex">
+                  <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
+                </div>
+
+                <div class="product-info d-flex">
+                  <div>
+                    <h5 class="product-title mb-0">
+                      <a href="product-detail.html" class="product-title-link"
+                        >Medicine</a
+                      >
+                    </h5>
+
+                    <p class="product-p">Original design from house</p>
+                  </div>
+
+                  <small class="product-price text-muted ms-auto">$200</small>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-10 me-auto mb-4">
+            <h4 class="text-white mb-3">
+              <a href="index.html">Little</a> Fashion
+            </h4>
+            <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">
+              Copyright © 2022 <strong>Little Fashion</strong>
+            </p>
+            <br />
+            <p class="copyright-text">
+              Designed by
+              <!-- <a href="https://www.tooplate.com/" target="_blank">Tooplate</a> -->
+            </p>
+          </div>
+
+          <div class="col-lg-5 col-8">
+            <h5 class="text-white mb-3">Sitemap</h5>
+
+            <ul class="footer-menu d-flex flex-wrap">
+              <li class="footer-menu-item">
+                <a href="about.html" class="footer-menu-link">Story</a>
+              </li>
+
+              <li class="footer-menu-item">
+                <a href="#" class="footer-menu-link">Products</a>
+              </li>
+
+              <li class="footer-menu-item">
+                <a href="#" class="footer-menu-link">Privacy policy</a>
+              </li>
+
+              <li class="footer-menu-item">
+                <a href="#" class="footer-menu-link">FAQs</a>
+              </li>
+
+              <li class="footer-menu-item">
+                <a href="#" class="footer-menu-link">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-4">
+            <h5 class="text-white mb-3">Social</h5>
+
+            <ul class="social-icon">
+              <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+
+              <li><a href="#" class="social-icon-link bi-whatsapp"></a></li>
+
+              <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+
+              <li><a href="#" class="social-icon-link bi-skype"></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/Headroom.js"></script>
+    <script src="js/jQuery.headroom.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/product-list.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetchAndRenderProducts();
+      });
+    
+      function fetchAndRenderProducts() {
+        fetch("http://localhost:3000/api/products", { credentials: "include" })
+          .then(response => response.json())
+          .then(data => {
+            if (data.success) {
+              const productList = document.getElementById("product-list");
+              productList.innerHTML = "";
+    
+              data.data.forEach(product => {
+                const productHTML = `
+                  <div class="col-lg-3 col-12 mb-3">
+                    <div class="product-thumb" data-id="${product.id}">
+                      <a href="product-detail.html?id=${product.id}">
+                        <img src="${product.image_url}" class="img-fluid product-image" alt="${product.title}">
+                      </a>
+                      <div class="product-top d-flex">
+                        <span class="product-alert me-auto">${product.condition1}</span>
+                        <a href="#" class="bi-heart-fill product-icon add-to-wishlist" 
+                          data-id="${product.id}" 
+                          data-size="${product.size || 'M'}" 
+                          data-color="${product.color || 'Black'}" 
+                          data-price="${product.price}" 
+                          data-image="${product.image_url}">
+                        </a>
+                      </div>
+                      <div class="product-info d-flex">
+                        <h5 class="product-title mb-0">
+                          <a href="product-detail.html?id=${product.id}" class="product-title-link">${product.title}</a>
+                        </h5>
+                        <small class="product-price text-muted ms-auto">₹${product.price}</small>
+                      </div>
+                    </div>
+                  </div>
+                `;
+                productList.innerHTML += productHTML;
+              });
+    
+              attachWishlistListeners();
+            } else {
+              console.error("Failed to fetch products:", data.message);
+            }
+          })
+          .catch(error => console.error("Error fetching products:", error));
+      }
+    
+      function attachWishlistListeners() {
+        document.querySelectorAll(".add-to-wishlist").forEach(button => {
+          button.addEventListener("click", function (event) {
+            event.preventDefault();
+            const productId = this.getAttribute("data-id");
+            const size = this.getAttribute("data-size") || "M";
+            const color = this.getAttribute("data-color") || "Black";
+            const price = this.getAttribute("data-price");
+            const image_url = this.getAttribute("data-image");
+    
+            addToWishlist(productId, size, color, price, image_url);
+          });
+        });
+      }
+    
+      function addToWishlist(productId, size, color, price, image_url) {
+        fetch("http://localhost:3000/api/wishlist/add", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ product_id: productId, size, color, quantity: 1, price, image_url }),
+          credentials: "include",
+        })
+          .then(response => response.json())
+          .then(data => {
+            alert(data.message);
+          })
+          .catch(error => console.error("Error adding to wishlist:", error));
+      }
+    </script>
+    <!-- <script src="js/product-detail.js"></script> -->
+  </body>
+</html>
